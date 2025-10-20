@@ -1,7 +1,10 @@
 package com.proyecto;
 
+import java.sql.Connection;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Connection conexion = Conexion.getInstancia().conexion();
+        Conexion.getInstancia().cerrarConexion();
     }
 }
