@@ -8,14 +8,14 @@ public class Conexion {
 
     private static Conexion instancia;
     private Connection conexion=null;
-    private final String url = "jdbc:mysql://localhost:3306/contacto";
+    private final String url = "jdbc:mysql://localhost:3306/db_unidad_4";
     private final String username = "root";
     private final String password = "admin";
 
     private Conexion(){
         try{
             conexion = DriverManager.getConnection(url, username, password);
-            System.out.println("CONEXION EXITOSA");
+            System.out.println("CONEXION EXITOSA \n");
         }catch(SQLException e){
             System.err.println("Error: "+e.getMessage());
         }
@@ -44,7 +44,8 @@ public class Conexion {
     public void cerrarConexion(){
         try{
             if(conexion != null || !conexion.isClosed()){
-
+                conexion.close();
+                System.out.println("\nCONEXIÓN CERRADA");
             }
         }catch(SQLException e){
             System.err.println("Error: "+e.getMessage());
